@@ -7,7 +7,7 @@ import { changeFilter } from "../../redux/filtersSlice";
 const SearchBox = () => {
   const id = useId();
   const dispatch = useDispatch();
-  const filter = useSelector(changeFilter);
+  const filterState = useSelector((state) => state.filter.filters);
 
   const handleSearch = (event) => {
     const value = event.target.value; 
@@ -23,6 +23,7 @@ const SearchBox = () => {
         name='value'
         id={id}
         type="text"
+        value={filterState}
       />
     </div>
   );
